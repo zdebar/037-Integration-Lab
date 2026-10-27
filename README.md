@@ -12,6 +12,7 @@ docker compose ps
 - Frontend: http://localhost:5173
 - API: http://localhost:3000
 - API docs: http://localhost:3000/documentation/
+- GraphQL: http://localhost:3000/graphql (editor: /graphiql)
 
 Stop containers with `docker compose down` (database data is preserved).
 
@@ -24,7 +25,7 @@ Stop containers with `docker compose down` (database data is preserved).
 
 ### API and data
 - [x] ~~OpenAPI docs for current routes~~
-- [ ] GraphQL
+- [x] ~~GraphQL: PostgreSQL status query~~
 - [ ] Authentication and authorization
 - [ ] PostgreSQL: CLI, indexes, triggers
 - [ ] Webhooks

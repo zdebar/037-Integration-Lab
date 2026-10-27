@@ -3,11 +3,22 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import swagger from '@fastify/swagger'
 import swaggerUi from '@fastify/swagger-ui'
+import mercurius from 'mercurius'
 import pg from 'pg'
 
 const app = Fastify({ logger: true })
 const { Pool } = pg
 const pool = new Pool({ connectionString: process.env.DATABASE_URL })
+
+async function getDbCheck() {
+  const result = await pool.query('SELECT NOW() AS time, current_database() AS database')
+  const row = result.rows[0]
+
+  return {
+    time: row.time.toISOString(),
+    database: row.database,
+  }
+}
 
 await app.register(cors, {
   origin: 'http://localhost:5173',
@@ -28,6 +39,25 @@ await app.register(swagger, {
 
 await app.register(swaggerUi, {
   routePrefix: '/documentation',
+})
+
+await app.register(mercurius, {
+  graphiql: true,
+  schema: `
+    type DbCheck {
+      database: String!
+      time: String!
+    }
+
+    type Query {
+      dbCheck: DbCheck!
+    }
+  `,
+  resolvers: {
+    Query: {
+      dbCheck: getDbCheck,
+    },
+  },
 })
 
 app.get('/health', {
@@ -64,8 +94,7 @@ app.get('/db-check', {
     },
   },
 }, async () => {
-  const result = await pool.query('SELECT NOW() AS time, current_database() AS database')
-  return result.rows[0]
+  return getDbCheck()
 })
 
 const port = Number(process.env.PORT ?? 3000)
