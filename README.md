@@ -4,8 +4,11 @@ My own testing environment for technologies and integrations.
 
 ## Experiments
 
-1. Principles
+1. Generic
     1. Cl / CD
+        1. continuous integration
+        2. continuous delivery / deployment
+        3. Github Actions
     2. Monitoring
         1. traces
         2. metrics 
@@ -15,29 +18,21 @@ My own testing environment for technologies and integrations.
         6. health checks
         7. error reports
         8. performance profiles
-
-2. Generic
-    1. Javascript
-    2. Typescript
-    3. Python
-    4. SQL
-    5. OpenTelemetry
-    6. Stripe
-    7. Docker
+    3. Docker
         1. local development
         2. create image
-    8. Continuous Integration
-    9. Continouss Deployment
-    10. Github Actions
+    4. Stripe
+    5. OpenTelemety
+    6. OpenAPI
 
-3. Frontend
+2. Frontend
     1. Vite + React
     2. Web Worker
     3. Service Worker
     4. Multiprocessing
     5. Multithreading
 
-4. Backend
+3. Backend
     1. Nodejs
         1. Dokumentace
         2. Setup
@@ -54,11 +49,6 @@ My own testing environment for technologies and integrations.
         2. webhooks
         3. triggers
         4. indexes
-    4. Cl/CD
-        1. backend
-        2. frontend
-        3. docker
-        4. testy
     5. LLM integrace
         1. obecné rozhraní
         2. chat nad firemními daty
