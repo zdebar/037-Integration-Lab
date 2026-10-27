@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "migrate": "node-pg-migrate"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,8 @@
     "graphql": "^17.0.2",
     "mercurius": "^16.12.1",
     "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "node-pg-migrate": "^9.0.0"
   }
 }
