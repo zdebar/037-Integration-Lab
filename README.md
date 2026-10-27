@@ -45,7 +45,7 @@ Stop containers with `docker compose down` (database data is preserved).
 - [x] ~~Practice CRUD, filtering, sorting, aggregation, and pagination~~
 - [x] ~~Use parameterized queries from Fastify~~
 - [x] ~~Use transactions with `COMMIT` and `ROLLBACK`~~
-- [ ] Configure and inspect the PostgreSQL connection pool
+- [x] ~~Configure and inspect the PostgreSQL connection pool~~
 
 ##### 4. Performance and concurrency
 - [ ] Compare query plans with `EXPLAIN` and `EXPLAIN ANALYZE`
